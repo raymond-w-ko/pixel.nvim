@@ -42,7 +42,7 @@ function M.setup(opts)
 	vim.opt.termguicolors = false
 
 	-- Basic highlight groups - using only ANSI terminal colors
-	hi("Normal", { ctermfg = colors.white, ctermbg = colors.black })
+	hi("Normal", { ctermfg = colors.white })
 	hi("Cursor", { ctermfg = colors.black, ctermbg = colors.white })
 	hi("CursorLine", { ctermfg = colors.white, ctermbg = colors.br_black })
 	hi("CursorColumn", { ctermbg = colors.br_black })
