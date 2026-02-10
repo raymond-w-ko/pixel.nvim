@@ -31,6 +31,9 @@ function M.setup(opts)
 		vim.cmd("syntax reset")
 	end
 
+	-- Clean up default highlight groups
+	utils.clear_defaults()
+
 	-- Set colorscheme name
 	vim.g.colors_name = "pixel"
 

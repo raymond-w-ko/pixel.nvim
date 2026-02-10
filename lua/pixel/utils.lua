@@ -23,12 +23,41 @@ function M.hi(group, opts)
   end
 
   -- Add terminal attributes (bold, italic, etc.) if specified
+  -- Strip italic and reverse attributes
   if opts.cterm then
-    cmd = cmd .. " cterm=" .. opts.cterm
+    local attrs = {}
+    for attr in opts.cterm:gmatch("[^,]+") do
+      attr = vim.trim(attr)
+      if attr ~= "italic" and attr ~= "reverse" then
+        table.insert(attrs, attr)
+      end
+    end
+    local cterm = #attrs > 0 and table.concat(attrs, ",") or "NONE"
+    cmd = cmd .. " cterm=" .. cterm
   end
 
   -- Execute the highlight command
   vim.cmd(cmd)
+end
+
+--- Clean up all explicitly set (non-linked) highlight groups:
+--- strip italic/reverse from cterm, and clear all color attributes
+function M.clear_defaults()
+  for group, hl in pairs(vim.api.nvim_get_hl(0, {})) do
+    if not hl.link then
+      hl.fg = nil
+      hl.bg = nil
+      hl.ctermfg = nil
+      hl.ctermbg = nil
+      local cterm = hl.cterm or {}
+      cterm.italic = nil
+      cterm.reverse = nil
+      hl.cterm = next(cterm) and cterm or nil
+      hl.italic = nil
+      hl.reverse = nil
+      vim.api.nvim_set_hl(0, group, hl)
+    end
+  end
 end
 
 return M
