@@ -9,7 +9,7 @@ local M = {}
 
 function M.setup(colors)
   -- Telescope general
-  hi("TelescopeSelection", { ctermfg = colors.white, ctermbg = colors.br_black })
+  hi("TelescopeSelection", { ctermbg = colors.br_black })
   hi("TelescopeSelectionCaret", { ctermfg = colors.white })
   hi("TelescopeMultiSelection", { ctermfg = colors.white })
   hi("TelescopeNormal", { ctermfg = colors.white })
