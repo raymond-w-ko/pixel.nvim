@@ -93,8 +93,9 @@ function M.setup(opts)
 
 	-- UI elements
 	hi("Visual", { ctermbg = colors.br_black })
-	hi("Search", { ctermfg = colors.black, ctermbg = colors.yellow, cterm = "bold" })
+	hi("Search", { ctermfg = colors.black, ctermbg = colors.red, cterm = "bold" })
 	hi("IncSearch", { ctermfg = colors.black, ctermbg = colors.br_yellow, cterm = "bold" })
+	hi("CurSearch", { ctermfg = colors.black, ctermbg = colors.yellow, cterm = "bold" })
 	hi("StatusLine", { ctermfg = colors.white, ctermbg = colors.br_black, cterm = "bold" })
 	hi("StatusLineNC", { ctermfg = colors.br_black })
 	hi("VertSplit", { ctermfg = colors.br_black })
