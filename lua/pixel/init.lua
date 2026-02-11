@@ -53,7 +53,7 @@ function M.setup(opts)
 	hi("CursorLineNr", { ctermfg = colors.white })
 
 	-- Syntax highlighting - using ANSI colors for dynamic adaptation
-	hi("Comment", { ctermfg = colors.br_black, cterm = config.disable_italics and "NONE" or "italic" })
+	hi("Comment", { ctermfg = colors.magenta, cterm = config.disable_italics and "NONE" or "italic" })
 	hi("String", { ctermfg = colors.green })
 	hi("Character", { ctermfg = colors.br_green })
 	hi("Number", { ctermfg = colors.cyan })
